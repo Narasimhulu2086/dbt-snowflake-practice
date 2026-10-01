@@ -1,0 +1,13 @@
+# dbt generated files
+logs/
+snowflake_dbt_project/logs/
+snowflake_dbt_project/target/
+snowflake_dbt_project/dbt_packages/
+
+# Local credentials
+snowflake_dbt_project/profiles.yml
+.env
+
+# Temporary practice files
+simha.xt
+simha_target/
