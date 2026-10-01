@@ -28,3 +28,7 @@ jobs:
 
       - name: Check dbt version
         run: dbt --version
+
+      - name: dbt compile
+        working-directory: snowflake_dbt_project
+        run: dbt compile
