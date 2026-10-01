@@ -1,3 +1,4 @@
+```yaml
 name: dbt CI
 
 on:
@@ -21,5 +22,10 @@ jobs:
       - name: Install dbt
         run: pip install dbt-snowflake
 
+      - name: Install dbt packages
+        working-directory: snowflake_dbt_project
+        run: dbt deps
+
       - name: Check dbt version
         run: dbt --version
+```
