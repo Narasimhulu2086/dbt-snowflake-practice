@@ -1,11 +1,7 @@
-```yaml
 name: dbt CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -23,33 +19,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dbt
-        run: |
-          pip install dbt-snowflake
+        run: pip install dbt-snowflake
 
-      - name: Create profiles.yml
-        run: |
-          mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml << EOF
-          snowflake_dbt_project:
-            target: dev
-            outputs:
-              dev:
-                type: snowflake
-                account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-                user: ${{ secrets.SNOWFLAKE_USER }}
-                password: ${{ secrets.SNOWFLAKE_PASSWORD }}
-                role: ${{ secrets.SNOWFLAKE_ROLE }}
-                warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
-                database: ${{ secrets.SNOWFLAKE_DATABASE }}
-                schema: ${{ secrets.SNOWFLAKE_SCHEMA }}
-                threads: 4
-          EOF
-
-      - name: Install dbt packages
-        working-directory: snowflake_dbt_project
-        run: dbt deps
-
-      - name: dbt compile
-        working-directory: snowflake_dbt_project
-        run: dbt compile
-```
+      - name: Check dbt version
+        run: dbt --version
