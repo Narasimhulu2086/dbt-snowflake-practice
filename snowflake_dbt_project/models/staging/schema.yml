@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: employee_source
-    database: DB2
-    schema: MODELS_TEST
-    tables:
-      - name: EMPLOYEE
