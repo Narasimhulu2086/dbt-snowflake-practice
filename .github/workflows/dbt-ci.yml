@@ -1,4 +1,3 @@
-
 name: dbt CI
 
 on:
@@ -46,16 +45,16 @@ jobs:
             outputs:
               dev:
                 type: snowflake
-                account: "$SNOWFLAKE_ACCOUNT"
-                user: "$SNOWFLAKE_USER"
-                password: "$SNOWFLAKE_PASSWORD"
-                role: "$SNOWFLAKE_ROLE"
-                warehouse: "$SNOWFLAKE_WAREHOUSE"
-                database: "$SNOWFLAKE_DATABASE"
-                schema: "$SNOWFLAKE_SCHEMA"
+                account: ${SNOWFLAKE_ACCOUNT}
+                user: ${SNOWFLAKE_USER}
+                password: ${SNOWFLAKE_PASSWORD}
+                role: ${SNOWFLAKE_ROLE}
+                warehouse: ${SNOWFLAKE_WAREHOUSE}
+                database: ${SNOWFLAKE_DATABASE}
+                schema: ${SNOWFLAKE_SCHEMA}
                 threads: 4
-          EOF
-    
+          'EOF'
+
       - name: dbt compile
-        working-directory: snowflake_dbt_project 
+        working-directory: snowflake_dbt_project
         run: dbt compile
