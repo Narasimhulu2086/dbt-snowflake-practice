@@ -1,4 +1,4 @@
-```yaml
+
 name: dbt CI
 
 on:
@@ -28,4 +28,3 @@ jobs:
 
       - name: Check dbt version
         run: dbt --version
-```
