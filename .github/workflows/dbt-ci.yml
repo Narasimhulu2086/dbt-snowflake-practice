@@ -60,3 +60,7 @@ jobs:
       - name: dbt compile
         working-directory: snowflake_dbt_project
         run: dbt compile
+
+      - name: dbt test
+        working-directory: snowflake_dbt_project
+        run: dbt test
