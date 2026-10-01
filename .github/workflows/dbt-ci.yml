@@ -61,6 +61,10 @@ jobs:
         working-directory: snowflake_dbt_project
         run: dbt compile
 
+      - name: dbt run
+        working-directory: snowflake_dbt_project
+        run: dbt run
+
       - name: dbt test
         working-directory: snowflake_dbt_project
         run: dbt test
